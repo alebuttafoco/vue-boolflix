@@ -3,6 +3,7 @@ const app = new Vue({
     data: {
         url: 'https://api.themoviedb.org/3/search/movie?api_key=0d8074b8bfe08af5bfdf6766d8596223&query=',
         searchString: "",
+        filmsData: [],
     },
 
     methods: {
@@ -12,7 +13,8 @@ const app = new Vue({
             axios
                 .get(fullUrl)
                 .then(result => {
-                    console.log(result.data.results);
+                    this.filmsData = result.data.results;
+                    console.log(this.filmsData);
                 })
                 .catch(e => {
                     console.log(e);
@@ -24,8 +26,3 @@ const app = new Vue({
     mounted() {
     }
 })
-
-/* titolo
-titolo originale
-lingua
-voto */

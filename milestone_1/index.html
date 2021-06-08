@@ -16,6 +16,17 @@
             <button @click="searching">Enter</button>
         </div>
 
+        <!-- films -->
+        <div class="films">
+            <ul>
+                <li v-for="film in filmsData"> titolo: {{film.title}} <br> 
+                    titolo originale: {{film.original_title}} <br> 
+                    lingua: {{film.original_language}} <br> 
+                    voto: {{film.vote_average}} 
+                </li>
+            </ul>
+        </div>
+
     </div>
 
 
