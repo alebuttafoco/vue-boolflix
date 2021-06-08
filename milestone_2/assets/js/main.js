@@ -13,13 +13,13 @@ const app = new Vue({
             let fullUrlFilms = this.urlFilms + this.searchString;
             let fullUrlSeries = this.urlSeries + this.searchString;
 
-            getUrl(fullUrlFilms, this.filmsData)
-            getUrl(fullUrlSeries, this.seriesData) 
+            getData(fullUrlFilms, this.filmsData)
+            getData(fullUrlSeries, this.seriesData)
         }
     },
 
     mounted() {
-        function getUrl(url, list) {
+        function getData(url, list) {
             axios.get(url)
             .then(result => {
                 list = result.data.results;
