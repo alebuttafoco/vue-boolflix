@@ -21,7 +21,7 @@
             <ul>
                 <li v-for="film in filmsData"> titolo: {{film.title}} <br> 
                     titolo originale: {{film.original_title}} <br> 
-                    <img :src=" 'https://www.countryflags.io/' + film.original_language + '/flat/48.png' "> <br>
+                    <img :src=" 'https://unpkg.com/language-icons/icons/' + film.original_language + '.svg' " alt="">
                     voto: {{film.vote_average}} 
                 </li>
             </ul>
