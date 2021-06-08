@@ -12,8 +12,8 @@
     <div id="app">
         <!-- search bar -->
         <div class="form-group">
-            <input id="my-input" class="form-control" type="text" >
-            <button>Enter</button>
+            <input id="my-input" class="form-control" type="text" v-model="searchString">
+            <button @click="searching">Enter</button>
         </div>
 
     </div>
