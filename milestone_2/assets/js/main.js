@@ -3,7 +3,7 @@ const app = new Vue({
     data: {
         url: 'https://api.themoviedb.org/3/search/movie?api_key=0d8074b8bfe08af5bfdf6766d8596223&query=',
         searchString: "",
-        filmsData: [],
+        filmsData: [],        
     },
 
     methods: {
