@@ -17,9 +17,9 @@
         </div>
 
         <!-- films -->
-        <div class="films">
+        <div class="films" v-if="filmsData">
             <h1>FILMS</h1>
-            <ul v-if="filmsData">
+            <ul>
                 <li v-for="film in filmsData"> titolo: {{film.title}} <br> 
                     titolo originale: {{film.original_title}} <br> 
                     <img :src=" 'https://unpkg.com/language-icons/icons/' + film.original_language + '.svg' " alt="">
@@ -29,9 +29,9 @@
         </div>
 
         <!-- series -->
-        <div class="series">
+        <div class="series" v-if="seriesData">
             <h1>SERIES</h1>
-            <ul v-if="seriesData">
+            <ul>
                 <li v-for="serie in seriesData"> titolo: {{serie.name}} <br>
                     titolo originale: {{serie.original_name}} <br>
                     <img :src=" 'https://unpkg.com/language-icons/icons/' + serie.original_language + '.svg' " alt="">
