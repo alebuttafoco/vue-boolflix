@@ -10,28 +10,29 @@ const app = new Vue({
     },
 
     methods: {
-        getData(url, data){
-            axios.get(url).then(result => {
-                data = result.data.results;
-                //console.log(data);
+
+        
+
+        searching(){            
+            const fullUrlFilms = this.urlFilms + this.searchString;
+            const fullUrlSeries = this.urlSeries + this.searchString;
+
+            axios.get(fullUrlFilms).then(result => {
+                this.filmsData = result.data.results;
             })
             .catch(e => {
                 console.error(e);
                 this.error = "Errore", e;
             })
-            .finally(()=>{
-                console.log(data);
-                return data;
+
+            axios.get(fullUrlSeries).then(result => {
+                this.seriesData = result.data.results;
             })
-        },
+                .catch(e => {
+                    console.error(e);
+                    this.error = "Errore", e;
+                })
 
-        searching(){            
-            const fullUrlFilms = this.urlFilms + this.searchString;
-            //const fullUrlSeries = this.urlSeries + this.searchString;
-
-            this.getData(fullUrlFilms, this.filmsData)
-            console.log(this.getData(fullUrlFilms, this.filmsData));
-            //this.getData(fullUrlSeries, this.seriesData)
         }
     },
 
