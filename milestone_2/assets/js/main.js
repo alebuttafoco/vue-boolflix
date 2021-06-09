@@ -13,13 +13,16 @@ const app = new Vue({
         getData(url, data){
             axios.get(url).then(result => {
                 data = result.data.results;
-                console.log(data);
+                //console.log(data);
             })
             .catch(e => {
                 console.error(e);
                 this.error = "Errore", e;
             })
-            return data;
+            .finally(()=>{
+                console.log(data);
+                return data;
+            })
         },
 
         searching(){            
@@ -27,7 +30,7 @@ const app = new Vue({
             //const fullUrlSeries = this.urlSeries + this.searchString;
 
             this.getData(fullUrlFilms, this.filmsData)
-            console.log(this.filmsData);
+            console.log(this.getData(fullUrlFilms, this.filmsData));
             //this.getData(fullUrlSeries, this.seriesData)
         }
     },
