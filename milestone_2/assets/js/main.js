@@ -14,12 +14,12 @@ const app = new Vue({
             axios.get(url).then(result => {
                 data = result.data.results;
                 console.log(data);
-                return data
             })
             .catch(e => {
                 console.error(e);
                 this.error = "Errore", e;
             })
+            return data;
         },
 
         searching(){            
