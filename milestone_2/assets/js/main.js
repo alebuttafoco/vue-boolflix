@@ -7,35 +7,26 @@ const app = new Vue({
         seriesData: null,
         searchString: "",
         error: null,
-
     },
 
     methods: {
-
-        
-
         searching(){            
             const fullUrlFilms = this.urlFilms + this.searchString;
             const fullUrlSeries = this.urlSeries + this.searchString;
 
             /* ottiene film */
-            axios.get(fullUrlFilms).then(result => {
-                this.filmsData = result.data.results;
-            })
+            axios.get(fullUrlFilms).then(result => {this.filmsData = result.data.results;})
             .catch(e => {
                 console.error(e);
                 this.error = "Errore", e;
             })
 
             /* ottiene serie tv */
-            axios.get(fullUrlSeries).then(result => {
-                this.seriesData = result.data.results;
-            })
+            axios.get(fullUrlSeries).then(result => {this.seriesData = result.data.results;})
             .catch(e => {
                 console.error(e);
                 this.error = "Errore", e;
             })
-            
         },
 
         getFlag(code){
@@ -51,7 +42,5 @@ const app = new Vue({
         }
     },
 
-    mounted() {
-
-    }
+    mounted() {}
 })
