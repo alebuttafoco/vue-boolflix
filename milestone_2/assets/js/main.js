@@ -7,7 +7,6 @@ const app = new Vue({
         seriesData: null,
         searchString: "",
         error: null,
-        brokenFlags: ['ko', 'cs', 'te', 'da', 'hi', 'el', 'zh'],    
 
     },
 
@@ -40,8 +39,14 @@ const app = new Vue({
         },
 
         getFlag(code){
-            if(code == 'en') code = 'gb';
+            if (code == 'en') code = 'gb';
             if (code == 'ja') code = 'jp';
+            if (code == 'ko') code = 'kr';
+            if (code == 'cs') code = 'cz';
+            if (code == 'da') code = 'dk';
+            if (code == 'hi') code = 'in';
+            if (code == 'el') code = 'gr';
+            if (code == 'zh') code = 'cn';
             return `https://www.countryflags.io/${code}/flat/64.png`
         }
     },
