@@ -12,7 +12,7 @@
     <div id="app">
         <!-- search bar -->
         <div class="form-group">
-            <input id="my-input" class="form-control" type="text" v-model="searchString">
+            <input id="my-input" class="form-control" type="text" v-model="searchString" @keyup.enter="searching">
             <button @click="searching">Enter</button>
         </div>
 
@@ -20,11 +20,12 @@
         <div class="films" v-if="filmsData">
             <h1>FILMS</h1>
             <ul>
-                <li v-for="film in filmsData"> titolo: {{film.title}} <br> 
+                <li v-if="filmsData.length > 0" v-for="film in filmsData"> titolo: {{film.title}} <br> 
                     titolo originale: {{film.original_title}} <br> 
                     <img :src="getFlag(film.original_language)">
                     voto: {{film.vote_average}} 
                 </li>
+                <li v-if="filmsData.length == 0" >Nessun risultato</li>
             </ul>
         </div>
 
@@ -37,6 +38,7 @@
                     <img :src="getFlag(serie.original_language)">
                     voto: {{serie.vote_average}}
                 </li>
+                <li v-if="seriesData.length == 0">Nessun risultato</li>
             </ul>
         </div>
 
