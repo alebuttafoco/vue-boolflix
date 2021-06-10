@@ -18,9 +18,6 @@ body{
 }
 
 /* MAIN */
-.info{
-    display: none;
-}
 
 .films, .series{
     display: flex;
@@ -31,4 +28,13 @@ body{
 
 .card{
     margin: 15px;
+}
+
+.cover img{
+    height: 500px;
+    object-fit: cover;
+}
+
+.info{
+    display: none;
 }
