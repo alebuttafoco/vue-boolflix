@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BoolFlix</title>
+</head>
+<body>
+    
+
+    <div id="app">
+        <!-- search bar -->
+        <div class="form-group">
+            <input id="my-input" class="form-control" type="text" v-model="searchString" @keyup.enter="searching">
+            <button @click="searching">Enter</button>
+        </div>
+        
+        <div v-if="error">Nessun risultato corrispondente</div>
+
+        <!-- films -->
+        <div class="films" v-if="filmsData">
+            <h1>FILMS</h1>
+            <ul>
+                <li v-if="filmsData.length > 0" v-for="film in filmsData"> 
+                    titolo: {{film.title}} <br> 
+                    titolo originale: {{film.original_title}} <br> 
+                    <img :src=" urlCover + film.poster_path" alt=""> <br>
+                    <img :src="getFlag(film.original_language)">
+                    voto: {{film.vote_average}} 
+                </li>
+                <li v-if="filmsData.length == 0" >Nessun risultato corrispondente</li>
+            </ul>
+        </div>
+        
+        <!-- series -->
+        <div class="series" v-if="seriesData">
+            <h1>SERIES</h1>
+            <ul>
+                <li v-for="serie in seriesData"> 
+                    titolo: {{serie.name}} <br>
+                    titolo originale: {{serie.original_name}} <br>
+                    <img :src=" urlCover + serie.poster_path" alt=""> <br>
+                    <img :src="getFlag(serie.original_language)">
+                    voto: {{serie.vote_average}}
+                </li>
+                <li v-if="seriesData.length == 0">Nessun risultato corrispondente</li>
+            </ul>
+        </div>
+
+    </div>
+
+
+    <!-- VueJS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <!-- AXIOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+        integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- javascript -->
+    <script src="./assets/js/main.js"></script>
+
+</body>
+</html>
