@@ -6,6 +6,7 @@
 
 body{
     background-color:#211f1f;
+    color: white;
 }
 /* HEADER */
 #site_header{
@@ -17,3 +18,7 @@ body{
 }
 
 /* MAIN */
+.films, .series{
+    display: flex;
+    flex-wrap: wrap;
+}
