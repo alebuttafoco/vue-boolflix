@@ -10,6 +10,9 @@
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+        integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
 </head>
 <body>
     
@@ -40,7 +43,7 @@
                         <div class="info">
                             <span><strong>Titolo</strong>: {{film.title}}</span>
                             <span><strong>Titolo originale</strong>: {{film.original_title}}</span>
-                            <span><strong>Voto</strong>: {{film.vote_average}}</span>
+                            <span><strong>Voto</strong>: <i class="fas fa-star"></i> {{film.vote_average}}</span>
                             <p><strong>Overview</strong>: {{film.overview}} </p>
                             <span class="language"><strong>Lingua</strong>: <img id="flag" :src="getFlag(film.original_language)"></span>
                         </div>
@@ -58,7 +61,7 @@
                         <div class="info">
                             <span><strong>Titolo</strong>: {{serie.name}}</span>
                             <span><strong>Titolo originale</strong>: {{serie.original_name}}</span>
-                            <span><strong>Voto</strong>: {{serie.vote_average}}</span>
+                            <span><strong>Voto</strong>: <i class="fas fa-star"></i> {{serie.vote_average}}</span>
                             <p><strong>Overview</strong>: {{serie.overview}} </p>
                             <span class="language"><strong>Lingua</strong>: <img id="flag" :src="getFlag(serie.original_language)"></span>
                         </div>

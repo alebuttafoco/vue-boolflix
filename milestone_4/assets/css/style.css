@@ -92,3 +92,7 @@ h2{
     align-items: center;
     justify-content: center;
 }
+
+.fa-star{
+    color: #d10015;
+}
