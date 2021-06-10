@@ -5,48 +5,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BoolFlix</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
     
 
     <div id="app">
-        <!-- search bar -->
-        <div class="form-group">
-            <input id="my-input" class="form-control" type="text" v-model="searchString" @keyup.enter="searching">
-            <button @click="searching">Enter</button>
-        </div>
-        
-        <div v-if="error">Nessun risultato corrispondente</div>
 
-        <!-- films -->
-        <div class="films" v-if="filmsData">
-            <h1>FILMS</h1>
-            <ul>
-                <li v-if="filmsData.length > 0" v-for="film in filmsData"> 
-                    titolo: {{film.title}} <br> 
-                    titolo originale: {{film.original_title}} <br> 
-                    <img :src=" urlCover + film.poster_path" alt=""> <br>
-                    <img :src="getFlag(film.original_language)">
-                    voto: {{film.vote_average}} 
-                </li>
-                <li v-if="filmsData.length == 0" >Nessun risultato corrispondente</li>
-            </ul>
-        </div>
+        <header id="site_header">
+            <!-- search bar -->
+            <div class="form-group">
+                <input id="my-input" class="form-control" type="text" v-model="searchString" @keyup.enter="searching">
+                <button @click="searching">Enter</button>
+            </div>
+        </header>
         
-        <!-- series -->
-        <div class="series" v-if="seriesData">
-            <h1>SERIES</h1>
-            <ul>
-                <li v-for="serie in seriesData"> 
-                    titolo: {{serie.name}} <br>
-                    titolo originale: {{serie.original_name}} <br>
-                    <img :src=" urlCover + serie.poster_path" alt=""> <br>
-                    <img :src="getFlag(serie.original_language)">
-                    voto: {{serie.vote_average}}
-                </li>
-                <li v-if="seriesData.length == 0">Nessun risultato corrispondente</li>
-            </ul>
-        </div>
+
+        <main id="site_main">
+            <div v-if="error">Nessun risultato corrispondente</div>
+    
+            <!-- films -->
+            <div class="films" v-if="filmsData">
+                <h1>FILMS</h1>
+                <ul>
+                    <li v-if="filmsData.length > 0" v-for="film in filmsData"> 
+                        titolo: {{film.title}} <br> 
+                        titolo originale: {{film.original_title}} <br> 
+                        <img :src=" urlCover + film.poster_path" alt=""> <br>
+                        <img :src="getFlag(film.original_language)">
+                        voto: {{film.vote_average}} 
+                    </li>
+                    <li v-if="filmsData.length == 0" >Nessun risultato corrispondente</li>
+                </ul>
+            </div>
+            
+            <!-- series -->
+            <div class="series" v-if="seriesData">
+                <h1>SERIES</h1>
+                <ul>
+                    <li v-for="serie in seriesData"> 
+                        titolo: {{serie.name}} <br>
+                        titolo originale: {{serie.original_name}} <br>
+                        <img :src=" urlCover + serie.poster_path" alt=""> <br>
+                        <img :src="getFlag(serie.original_language)">
+                        voto: {{serie.vote_average}}
+                    </li>
+                    <li v-if="seriesData.length == 0">Nessun risultato corrispondente</li>
+                </ul>
+            </div>
+        </main>
 
     </div>
 
