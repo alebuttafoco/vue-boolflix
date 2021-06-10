@@ -15,30 +15,36 @@
             <input id="my-input" class="form-control" type="text" v-model="searchString" @keyup.enter="searching">
             <button @click="searching">Enter</button>
         </div>
+        
+        <div v-if="error">Nessun risultato corrispondente</div>
 
         <!-- films -->
         <div class="films" v-if="filmsData">
             <h1>FILMS</h1>
             <ul>
-                <li v-if="filmsData.length > 0" v-for="film in filmsData"> titolo: {{film.title}} <br> 
+                <li v-if="filmsData.length > 0" v-for="film in filmsData"> 
+                    titolo: {{film.title}} <br> 
                     titolo originale: {{film.original_title}} <br> 
+                    <img :src=" urlCover + film.poster_path" alt=""> <br>
                     <img :src="getFlag(film.original_language)">
                     voto: {{film.vote_average}} 
                 </li>
-                <li v-if="filmsData.length == 0" >Nessun risultato</li>
+                <li v-if="filmsData.length == 0" >Nessun risultato corrispondente</li>
             </ul>
         </div>
-
+        
         <!-- series -->
         <div class="series" v-if="seriesData">
             <h1>SERIES</h1>
             <ul>
-                <li v-for="serie in seriesData"> titolo: {{serie.name}} <br>
+                <li v-for="serie in seriesData"> 
+                    titolo: {{serie.name}} <br>
                     titolo originale: {{serie.original_name}} <br>
+                    <img :src=" urlCover + serie.poster_path" alt=""> <br>
                     <img :src="getFlag(serie.original_language)">
                     voto: {{serie.vote_average}}
                 </li>
-                <li v-if="seriesData.length == 0">Nessun risultato</li>
+                <li v-if="seriesData.length == 0">Nessun risultato corrispondente</li>
             </ul>
         </div>
 

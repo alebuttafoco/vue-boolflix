@@ -3,6 +3,7 @@ const app = new Vue({
     data: {
         urlFilms: 'https://api.themoviedb.org/3/search/movie?api_key=0d8074b8bfe08af5bfdf6766d8596223&query=',
         urlSeries: 'https://api.themoviedb.org/3/search/tv?api_key=0d8074b8bfe08af5bfdf6766d8596223&query=',
+        urlCover: 'https://image.tmdb.org/t/p/w342/',
         filmsData: null,  
         seriesData: null,
         searchString: "",
@@ -18,14 +19,14 @@ const app = new Vue({
             axios.get(fullUrlFilms).then(result => {this.filmsData = result.data.results;})
             .catch(e => {
                 console.error(e);
-                this.error = "Errore", e;
+                this.error = "errore", e;
             })
 
             /* ottiene serie tv */
             axios.get(fullUrlSeries).then(result => {this.seriesData = result.data.results;})
             .catch(e => {
                 console.error(e);
-                this.error = "Errore", e;
+                this.error = "errore", e;
             })
         },
 
@@ -38,6 +39,7 @@ const app = new Vue({
             if (code == 'hi') code = 'in';
             if (code == 'el') code = 'gr';
             if (code == 'zh') code = 'cn';
+            if (code == 'he') code = 'il';
             return `https://www.countryflags.io/${code}/flat/64.png`
         }
     },
