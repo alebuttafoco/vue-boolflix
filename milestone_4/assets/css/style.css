@@ -18,7 +18,17 @@ body{
 }
 
 /* MAIN */
+.info{
+    display: none;
+}
+
 .films, .series{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.card{
+    margin: 15px;
 }
