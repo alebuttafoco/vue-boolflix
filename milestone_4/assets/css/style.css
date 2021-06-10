@@ -7,6 +7,11 @@
 body{
     background-color:#211f1f;
     color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.logo, h2, .form-group{
+    padding: 10px 25px;
 }
 /* HEADER */
 #site_header{
@@ -17,7 +22,27 @@ body{
     justify-content: space-between;
 }
 
+.logo{
+    padding: 10px 25px;
+}
+
+input{
+    padding-left: 15px;
+    height: 30px;
+    border-style: none;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+input:focus{
+    outline-style: none;
+}
+
 /* MAIN */
+h2{
+    border-bottom: 2px solid #d10015;
+}
 
 .films, .series{
     display: flex;
@@ -30,23 +55,31 @@ body{
     margin: 15px;
 }
 
-.cover img, .info{
+.cover > img, .info{
     height: 500px;
+    width: 342px;
     object-fit: cover;
-    display: none;
     border-radius: 5px;
 }
 
+.cover{
+    position: relative;
+}
+
 .info{
-    /* display: none; */
-    height: 500px;
-    width: 342px;
     padding: 20px;
     background-color: #383535;
-    box-shadow: 0px 1px 25px 3px #d10015;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
+.cover > img:hover {
+    opacity: 0;
+    cursor: pointer;
 }
 
 #flag{

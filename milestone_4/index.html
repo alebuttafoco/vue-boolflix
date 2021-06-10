@@ -7,6 +7,9 @@
     <title>BoolFlix</title>
     <!-- CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
 </head>
 <body>
     
@@ -22,7 +25,6 @@
             <!-- search bar -->
             <div class="form-group">
                 <input id="my-input" class="form-control" type="text" v-model="searchString" @keyup.enter="searching">
-                <button @click="searching">Enter</button>
             </div>
         </header>
         
@@ -35,16 +37,16 @@
                 <div class="card" v-for="film in filmsData">
                     <div class="cover">
                         <img :src=" urlCover + film.poster_path" alt="">
-                    </div>
-                    <div class="info">
-                        <span><strong>Titolo</strong>: {{film.title}}</span>
-                        <span><strong>Titolo originale</strong>: {{film.original_title}}</span>
-                        <span><strong>Voto</strong>: {{film.vote_average}}</span>
-                        <p><strong>Overview</strong>: {{film.overview}} </p>
-                        <span class="language"><strong>Lingua</strong>: <img id="flag" :src="getFlag(film.original_language)"></span>
+                        <div class="info">
+                            <span><strong>Titolo</strong>: {{film.title}}</span>
+                            <span><strong>Titolo originale</strong>: {{film.original_title}}</span>
+                            <span><strong>Voto</strong>: {{film.vote_average}}</span>
+                            <p><strong>Overview</strong>: {{film.overview}} </p>
+                            <span class="language"><strong>Lingua</strong>: <img id="flag" :src="getFlag(film.original_language)"></span>
+                        </div>
                     </div>
                 </div>
-                <span v-if="filmsData.length == 0">>Nessun risultato corrispondente</span>
+                <span v-if="filmsData.length == 0">Nessun risultato corrispondente</span>
             </div>
             
             <!-- series -->
@@ -53,13 +55,13 @@
                 <div class="card" v-for="serie in seriesData">
                     <div class="cover">
                         <img :src=" urlCover + serie.poster_path" alt="">
-                    </div>
-                    <div class="info">
-                        <span><strong>Titolo</strong>: {{serie.name}}</span>
-                        <span><strong>Titolo originale</strong>: {{serie.original_name}}</span>
-                        <span><strong>Voto</strong>: {{serie.vote_average}}</span>
-                        <p><strong>Overview</strong>: {{serie.overview}} </p>
-                        <span class="language"><strong>Lingua</strong>: <img id="flag" :src="getFlag(serie.original_language)"></span>
+                        <div class="info">
+                            <span><strong>Titolo</strong>: {{serie.name}}</span>
+                            <span><strong>Titolo originale</strong>: {{serie.original_name}}</span>
+                            <span><strong>Voto</strong>: {{serie.vote_average}}</span>
+                            <p><strong>Overview</strong>: {{serie.overview}} </p>
+                            <span class="language"><strong>Lingua</strong>: <img id="flag" :src="getFlag(serie.original_language)"></span>
+                        </div>
                     </div>
                 </div>
                 <span v-if="seriesData.length == 0">Nessun risultato corrispondente</span>
