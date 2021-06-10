@@ -8,6 +8,7 @@ const app = new Vue({
         searchString: "",
         error: null,
         brokenFlags: ['ko', 'cs', 'te', 'da', 'hi', 'el', 'zh'],    
+
     },
 
     methods: {
@@ -18,6 +19,7 @@ const app = new Vue({
             const fullUrlFilms = this.urlFilms + this.searchString;
             const fullUrlSeries = this.urlSeries + this.searchString;
 
+            /* ottiene film */
             axios.get(fullUrlFilms).then(result => {
                 this.filmsData = result.data.results;
             })
@@ -26,6 +28,7 @@ const app = new Vue({
                 this.error = "Errore", e;
             })
 
+            /* ottiene serie tv */
             axios.get(fullUrlSeries).then(result => {
                 this.seriesData = result.data.results;
             })
@@ -34,6 +37,12 @@ const app = new Vue({
                 this.error = "Errore", e;
             })
             
+        },
+
+        getFlag(code){
+            if(code == 'en') code = 'gb';
+            if (code == 'ja') code = 'jp';
+            return `https://www.countryflags.io/${code}/flat/64.png`
         }
     },
 
