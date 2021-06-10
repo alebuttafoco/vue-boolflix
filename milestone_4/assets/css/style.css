@@ -1,0 +1,19 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color:#211f1f;
+}
+/* HEADER */
+#site_header{
+    background-color: #d10015;
+    color: #211f1f;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* MAIN */
