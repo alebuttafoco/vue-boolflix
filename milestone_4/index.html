@@ -34,13 +34,14 @@
             <div class="films" v-if="filmsData">
                 <div class="card" v-for="film in filmsData">
                     <div class="cover">
-                        <img :src=" urlCover + film.poster_path" alt=""> <br>
+                        <img :src=" urlCover + film.poster_path" alt="">
                     </div>
                     <div class="info">
-                        titolo: {{film.title}} <br>
-                        titolo originale: {{film.original_title}} <br>
-                        <img :src="getFlag(film.original_language)">
-                        voto: {{film.vote_average}}
+                        <span><strong>Titolo</strong>: {{film.title}}</span>
+                        <span><strong>Titolo originale</strong>: {{film.original_title}}</span>
+                        <span><strong>Voto</strong>: {{film.vote_average}}</span>
+                        <p><strong>Overview</strong>: {{film.overview}} </p>
+                        <span class="language"><strong>Lingua</strong>: <img id="flag" :src="getFlag(film.original_language)"></span>
                     </div>
                 </div>
                 <span v-if="filmsData.length == 0">>Nessun risultato corrispondente</span>
@@ -51,13 +52,14 @@
             <div class="series" v-if="seriesData">
                 <div class="card" v-for="serie in seriesData">
                     <div class="cover">
-                        <img :src=" urlCover + serie.poster_path" alt=""> <br>
+                        <img :src=" urlCover + serie.poster_path" alt="">
                     </div>
                     <div class="info">
-                        titolo: {{serie.name}} <br>
-                        titolo originale: {{serie.original_name}} <br>
-                        <img :src="getFlag(serie.original_language)">
-                        voto: {{serie.vote_average}}
+                        <span><strong>Titolo</strong>: {{serie.name}}</span>
+                        <span><strong>Titolo originale</strong>: {{serie.original_name}}</span>
+                        <span><strong>Voto</strong>: {{serie.vote_average}}</span>
+                        <p><strong>Overview</strong>: {{serie.overview}} </p>
+                        <span class="language"><strong>Lingua</strong>: <img id="flag" :src="getFlag(serie.original_language)"></span>
                     </div>
                 </div>
                 <span v-if="seriesData.length == 0">Nessun risultato corrispondente</span>
