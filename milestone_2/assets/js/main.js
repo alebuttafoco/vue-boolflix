@@ -7,6 +7,7 @@ const app = new Vue({
         seriesData: null,
         searchString: "",
         error: null,
+        brokenFlags: ['ko', 'cs', 'te', 'da', 'hi', 'el', 'zh'],    
     },
 
     methods: {
@@ -28,15 +29,15 @@ const app = new Vue({
             axios.get(fullUrlSeries).then(result => {
                 this.seriesData = result.data.results;
             })
-                .catch(e => {
-                    console.error(e);
-                    this.error = "Errore", e;
-                })
-
+            .catch(e => {
+                console.error(e);
+                this.error = "Errore", e;
+            })
+            
         }
     },
 
     mounted() {
-       
+
     }
 })

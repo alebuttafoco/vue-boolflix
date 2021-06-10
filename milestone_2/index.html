@@ -22,7 +22,7 @@
             <ul>
                 <li v-for="film in filmsData"> titolo: {{film.title}} <br> 
                     titolo originale: {{film.original_title}} <br> 
-                    <img :src=" 'https://unpkg.com/language-icons/icons/' + film.original_language + '.svg' " alt="">
+                    <img :src=" 'https://www.countryflags.io/' + film.original_language + '/flat/64.png' ">
                     voto: {{film.vote_average}} 
                 </li>
             </ul>
@@ -34,7 +34,7 @@
             <ul>
                 <li v-for="serie in seriesData"> titolo: {{serie.name}} <br>
                     titolo originale: {{serie.original_name}} <br>
-                    <img :src=" 'https://unpkg.com/language-icons/icons/' + serie.original_language + '.svg' " alt="">
+                    <img :src=" 'https://www.countryflags.io/' + serie.original_language + '/flat/64.png' ">
                     voto: {{serie.vote_average}}
                 </li>
             </ul>
