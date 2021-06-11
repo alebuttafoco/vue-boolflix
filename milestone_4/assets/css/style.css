@@ -33,10 +33,13 @@ input{
     border-radius: 25px;
     font-size: 1.2rem;
     font-family: 'Source Sans Pro', sans-serif;
+    transition: .3s;
 }
 
 input:focus{
     outline-style: none;
+    box-shadow: 0px 1px 7px 1px #211f1f;
+    transform: scale(1.1);
 }
 
 /* MAIN */
