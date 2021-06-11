@@ -28,8 +28,8 @@ const app = new Vue({
                 console.error(e);
                 this.error = "errore", e;
             })
-
-            if (this.error == "errore") { this.filmsData = null; this.seriesData = null;}
+            if (this.searchString == "") {this.seriesData = null; this.filmsData = null;}
+            this.searchString = "";
         },
 
         getFlag(code){
